@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Queen : MonoBehaviour
 {
-    private float playerSpeed = 2.0f;
+    public float playerSpeed = 2.0f;
     private Vector3 move;
     public float speed = 10f;
     private Rigidbody rb;
