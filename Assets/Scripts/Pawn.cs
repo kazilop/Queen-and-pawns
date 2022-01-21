@@ -6,14 +6,22 @@ public class Pawn : MonoBehaviour
 {
     Rigidbody rb;
     public float speed = 10f;
-    Vector3 move;
+    public int scoreValue = 100;
+    private GameManager manager;
+    
+    
+    private Vector3 move;
     // Start is called before the first frame update
     void Start()
     {
         move = new Vector3(0, 0, speed);
         rb = GetComponent<Rigidbody>();
+      //  manager = gameObject.GetComponent<GameManager>();
     }
-
+    private void Awake()
+    {
+        manager = FindObjectOfType<GameManager>();
+    }
     private void Update()
     {
         
@@ -28,6 +36,21 @@ public class Pawn : MonoBehaviour
         }
         
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+
+        Debug.Log("Collision");
+
+        if (collision.gameObject.tag == "Finish")
+            {
+                Debug.Log("Collision Finish");
+                manager.score = manager.score + 100;
+                Destroy(this.gameObject);
+            }
+        
+    }
+
 
     public void GoForward()
     {
