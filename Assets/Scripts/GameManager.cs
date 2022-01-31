@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private Vector3 queenPos;
     public GameObject pawn;
 
+    public bool isGaming;
+
     public int score = 0;
    // public Pawn[] pawns;
 
@@ -18,6 +20,11 @@ public class GameManager : MonoBehaviour
 
 
     public TMP_Text scoreValue;
+
+    private void Awake()
+    {
+        isGaming = true;
+    }
 
     void Start()
     {
