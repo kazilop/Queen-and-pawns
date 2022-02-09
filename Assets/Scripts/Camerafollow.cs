@@ -9,6 +9,7 @@ public class Camerafollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         //player = GetComponent<GameObject>;
         pos = player.transform.position - transform.position;
     }

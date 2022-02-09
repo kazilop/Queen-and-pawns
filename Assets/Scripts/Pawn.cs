@@ -8,6 +8,7 @@ public class Pawn : MonoBehaviour
     public float speed = 10f;
     public int scoreValue = 100;
     private GameManager manager;
+    public int pawnIndex;
     
     
     private Vector3 move;
@@ -42,18 +43,25 @@ public class Pawn : MonoBehaviour
 
         Debug.Log("Collision");
 
+        string temp;
+        temp = gameObject.name.Substring(4);
+        pawnIndex = int.Parse(temp);
+
         if (collision.gameObject.tag == "Finish")
         {
-            Debug.Log("Collision Finish");
             manager.score = manager.score + 100;
-            Destroy(this.gameObject);
+            manager.pawns.RemoveAt(pawnIndex);
             manager.pawnInGame--;
+            Destroy(this.gameObject);
+            
         }
 
         if(collision.gameObject.tag == "Enemy")
         {
-            Destroy(this.gameObject);
+            manager.pawns.RemoveAt(pawnIndex);
             manager.pawnInGame--;
+            Destroy(this.gameObject);
+            
         }
         
     }

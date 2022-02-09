@@ -8,12 +8,13 @@ public class Queen : MonoBehaviour
     private Vector3 move;
     public float speed = 10f;
     private Rigidbody rb;
+    public GameManager manager;
 
     // Start is called before the first frame update
     void Start()
     {
-
-       // controller = gameObject.AddComponent<CharacterController>();
+        manager = FindObjectOfType<GameManager>();
+        // controller = gameObject.AddComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         move = Vector3.zero;
     }
@@ -31,9 +32,30 @@ public class Queen : MonoBehaviour
         }
     }
 
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            int z = 0;
+            foreach (var i in manager.pawns)
+            {
+                if(i != null)
+                {
+                    Destroy(i.gameObject);
+                    manager.pawns.RemoveAt(z);
+                    break;
+                }
+                z++;
+            }
+            Respawn();
+        }
+    }
+
     public void Respawn()
     {
-
+        manager.pawnInGame--;
+        manager.QueenRespawn();
     }
 
     private void MovementLogic()
