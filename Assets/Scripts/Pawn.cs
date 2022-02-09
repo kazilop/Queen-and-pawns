@@ -43,11 +43,18 @@ public class Pawn : MonoBehaviour
         Debug.Log("Collision");
 
         if (collision.gameObject.tag == "Finish")
-            {
-                Debug.Log("Collision Finish");
-                manager.score = manager.score + 100;
-                Destroy(this.gameObject);
-            }
+        {
+            Debug.Log("Collision Finish");
+            manager.score = manager.score + 100;
+            Destroy(this.gameObject);
+            manager.pawnInGame--;
+        }
+
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(this.gameObject);
+            manager.pawnInGame--;
+        }
         
     }
 
@@ -55,8 +62,7 @@ public class Pawn : MonoBehaviour
     public void GoForward()
     {
         rb.AddForce(move);
-       // move = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
-       // transform.position = move * Time.deltaTime;
+
     }
 }
 

@@ -24,6 +24,16 @@ public class Queen : MonoBehaviour
     private void FixedUpdate()
     {
         MovementLogic();
+
+        if (transform.position.y < -5)
+        {
+            Respawn();
+        }
+    }
+
+    public void Respawn()
+    {
+
     }
 
     private void MovementLogic()

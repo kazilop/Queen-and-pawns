@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
    // public Pawn[] pawns;
 
     public int pawnCount = 5;
+    public int pawnInGame;
 
 
     public TMP_Text scoreValue;
@@ -37,10 +39,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         scoreValue.text = score.ToString();
+
+        if(pawnInGame == 0)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     private void PawnCreate(Vector3 pos)
     {
+        pawnInGame = pawnCount;
         pos.y = 5f;
         pos.z = pos.z - pawnCount;
         for (int i = 0; i < pawnCount; i++)
