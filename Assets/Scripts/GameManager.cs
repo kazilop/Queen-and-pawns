@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private Vector3 pawnPos;
     public GameObject pawn;
     private GameObject respawn;
+    public GameObject winPanel;
+    public GameObject losePanel;
 
     public bool isGaming;
 
@@ -21,6 +23,13 @@ public class GameManager : MonoBehaviour
 
     public int pawnCount = 5;
     public int pawnInGame;
+
+    public TMP_Text scoreText;
+
+    private string _sceneName;
+    private int _sceneNumber;
+
+    
 
 
     public TMP_Text scoreValue;
@@ -39,7 +48,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-       // pawns = new List<GameObject>;
+        // pawns = new List<GameObject>;
+        winPanel.SetActive(false);
+        losePanel.SetActive(false);
+
+        _sceneName = SceneManager.GetActiveScene().name;
+        _sceneNumber = System.Int32.Parse(_sceneName.Substring(5));
+
     }
 
     // Update is called once per frame
@@ -47,9 +62,13 @@ public class GameManager : MonoBehaviour
     {
         scoreValue.text = score.ToString();
 
-        if(pawnInGame == 0)
+        if(pawnInGame == 0 && score > 0)
         {
-            SceneManager.LoadScene("MainMenu");
+            YouWin();
+                      
+        }else if(pawnInGame == 0 && score == 0)
+        {
+            YouLose();
         }
     }
 
@@ -74,5 +93,26 @@ public class GameManager : MonoBehaviour
         queenPos.y = queenPos.y + 0.5f;
         queen.transform.position = queenPos;
         
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    private void YouWin()
+    {
+        winPanel.SetActive(true);
+        scoreText.text = "Score: " + score.ToString();
+        if(PlayerPrefs.GetInt("OpenLevels") <= _sceneNumber)
+        {
+            PlayerPrefs.SetInt("OpenLevels", _sceneNumber + 1);
+        }
+
+    }
+
+    private void YouLose()
+    {
+        losePanel.SetActive(true);
     }
 }

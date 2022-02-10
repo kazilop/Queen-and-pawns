@@ -14,9 +14,25 @@ public class MenuScript : MonoBehaviour
 
     public RectTransform parantPanel;
 
+    int openLevels;
+
+    public Button[] lvlButtons;
+
     //private GameObject parent;
     void Start()
     {
+
+        lvlButtons = new Button[levelCount];
+
+        if(PlayerPrefs.GetInt("OpenLevels") == 0)
+        {
+            PlayerPrefs.SetInt("OpenLevels", 1);
+            openLevels = 1;
+        }
+        else
+        {
+            openLevels = PlayerPrefs.GetInt("OpenLevels");
+        }
 
         var parent = FindObjectOfType<GridLayout>();
 
@@ -35,7 +51,15 @@ public class MenuScript : MonoBehaviour
             {
                 SelectLevel(x);
             });
-            
+
+            lvlButtons[i] = levelButton.GetComponentInChildren<Button>();
+                        
+        }
+
+        for (int i = 0; i < lvlButtons.Length; i++)
+        {
+            if (i + 1 > openLevels)
+                lvlButtons[i].interactable = false;
         }
     }
 
