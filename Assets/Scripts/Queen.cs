@@ -46,7 +46,7 @@ public class Queen : MonoBehaviour
                 if(i != null)
                 {
                     Destroy(i.gameObject);
-                    manager.pawns.RemoveAt(z);
+                    manager.pawns[z] = null;
                     break;
                 }
                 z++;

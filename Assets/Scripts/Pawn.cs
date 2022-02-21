@@ -21,7 +21,7 @@ public class Pawn : MonoBehaviour
         move = new Vector3(0, 0, speed);
         rb = GetComponent<Rigidbody>();
         _myCollider = rb.GetComponent<Collider>();
-        _myCollider.name = "Pawn1";
+       // _myCollider.name = "Pawn1";
       //  manager = gameObject.GetComponent<GameManager>();
     }
     private void Awake()
@@ -51,12 +51,12 @@ public class Pawn : MonoBehaviour
 
         string temp;
         temp = gameObject.name.Substring(4);
-        pawnIndex = int.Parse(temp);
+       // pawnIndex = int.Parse(temp);
 
         if (collision.gameObject.tag == "Finish")
         {
             manager.score = manager.score + scoreValue;
-            manager.pawns.RemoveAt(pawnIndex);
+          //  manager.pawns[pawnIndex-1] = null;
             manager.pawnInGame--;
             Destroy(this.gameObject);
             
@@ -64,7 +64,7 @@ public class Pawn : MonoBehaviour
 
         if(collision.gameObject.tag == "Enemy")
         {
-            manager.pawns.RemoveAt(pawnIndex);
+           // manager.pawns[pawnIndex-1] = null;
             manager.pawnInGame--;
             Destroy(this.gameObject);
             

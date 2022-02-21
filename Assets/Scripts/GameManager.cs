@@ -44,8 +44,10 @@ public class GameManager : MonoBehaviour
         QueenRespawn();
 
         pawnPos = queenPos;
+        //pawnPos.z = queenPos.z - 3;
+       // pawnPos.y = queenPos.y + 2;
         
-        PawnCreate(queenPos);
+        PawnCreate(pawnPos);
     }
 
     void Start()
@@ -79,11 +81,12 @@ public class GameManager : MonoBehaviour
         pawnInGame = pawnCount;
         pos.y = pos.y + 5f;
         pos.z = pos.z - (pawnCount + 3);
-        for (int i = pawnCount-1; i >= 0; i--)
+        for (int i = 0; i< pawnCount; i++)
         {
             pos.z = pos.z - 1;
             GameObject g = Instantiate(pawn, pos, Quaternion.identity);
-            g.transform.name = "Pawn" + i;
+            string myName= "Pawn" + i.ToString();
+            g.transform.name = myName;
             
             pawns.Add(g);
             
