@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Globalization;
+
 
 public class Pawn : MonoBehaviour
 {
     Rigidbody rb;
-    public float speed = 10f;
+    public float speed = 100f;
     public int scoreValue = 100;
     private GameManager manager;
     public int pawnIndex;
+    private Collider _myCollider;
     
     
     private Vector3 move;
@@ -17,6 +20,8 @@ public class Pawn : MonoBehaviour
     {
         move = new Vector3(0, 0, speed);
         rb = GetComponent<Rigidbody>();
+        _myCollider = rb.GetComponent<Collider>();
+        _myCollider.name = "Pawn1";
       //  manager = gameObject.GetComponent<GameManager>();
     }
     private void Awake()
@@ -31,8 +36,9 @@ public class Pawn : MonoBehaviour
     void FixedUpdate()
     {
         GoForward();
-        if(transform.position.y < -5)
+        if(transform.position.y < -5f)
         {
+            manager.pawnInGame--;
             Destroy(gameObject);
         }
         
@@ -49,7 +55,7 @@ public class Pawn : MonoBehaviour
 
         if (collision.gameObject.tag == "Finish")
         {
-            manager.score = manager.score + 100;
+            manager.score = manager.score + scoreValue;
             manager.pawns.RemoveAt(pawnIndex);
             manager.pawnInGame--;
             Destroy(this.gameObject);

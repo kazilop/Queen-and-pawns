@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   scoreValue: 100
+  pawnIndex: 0
 --- !u!136 &7483062286995687986
 CapsuleCollider:
   m_ObjectHideFlags: 0

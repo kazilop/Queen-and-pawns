@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml;
+
 
 public class Queen : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class Queen : MonoBehaviour
         // controller = gameObject.AddComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         move = Vector3.zero;
+   
     }
 
     // Update is called once per frame
@@ -26,7 +29,7 @@ public class Queen : MonoBehaviour
     {
         MovementLogic();
 
-        if (transform.position.y < -5)
+        if (transform.position.y < -5.0f)
         {
             Respawn();
         }
