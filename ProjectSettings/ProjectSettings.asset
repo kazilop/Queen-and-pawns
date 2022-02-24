@@ -916,6 +916,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -929,11 +930,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 2
-  cloudProjectId: 
+  cloudProjectId: ec478b1f-930e-4bb9-bd94-7896778b1ed3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: kings and pawns
+  organizationId: unity_wtamxkdpzchc0g
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
