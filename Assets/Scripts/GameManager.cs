@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using System.Xml;
+//using System.Xml;
 
 
 public class GameManager : MonoBehaviour
@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour
     private string _sceneName;
     private int _sceneNumber;
 
+    private RewardedAds _rewardedAds;
+
+    private System.Random _random;
+    public bool _isAdsNeed;
+    public int rnd;
+
     
 
 
@@ -38,6 +44,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        queen = GameObject.FindGameObjectWithTag("Player");
+        winPanel = GameObject.Find("PanelWin");
+        losePanel = GameObject.Find("PanelLose");
+
+        scoreValue = GameObject.Find("ScoreValue").GetComponent<TMP_Text>();
+        scoreText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
+
         isGaming = true;
         respawn = GameObject.FindGameObjectWithTag("Respawn");
         queenPos = respawn.transform.position;
@@ -52,12 +65,21 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        _random = new System.Random();
         // pawns = new List<GameObject>;
         winPanel.SetActive(false);
         losePanel.SetActive(false);
 
         _sceneName = SceneManager.GetActiveScene().name;
         _sceneNumber = System.Int32.Parse(_sceneName.Substring(5));
+
+        _rewardedAds = GetComponent<RewardedAds>();
+        rnd = _random.Next(0, 100);
+        if (rnd > 25 && rnd < 40)
+        {
+            _isAdsNeed = true;
+            
+        }
 
     }
 
@@ -66,13 +88,16 @@ public class GameManager : MonoBehaviour
     {
         scoreValue.text = score.ToString();
 
-        if(pawnInGame == 0 && score > 0)
+        if(pawnInGame == 0 && score > 0 && isGaming)
         {
+            isGaming = false;
             YouWin();
                       
-        }else if(pawnInGame == 0 && score == 0)
+        }else if(pawnInGame == 0 && score == 0 && isGaming)
         {
+            isGaming = false;
             YouLose();
+            
         }
     }
 
@@ -100,24 +125,92 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void GoToMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
     private void YouWin()
     {
-        winPanel.SetActive(true);
-        scoreText.text = "Score: " + score.ToString();
-        if(PlayerPrefs.GetInt("OpenLevels") <= _sceneNumber)
+        if (_isAdsNeed)
         {
-            PlayerPrefs.SetInt("OpenLevels", _sceneNumber + 1);
+            TryAd();
+            if (_rewardedAds.isReady)
+            {
+                winPanel.SetActive(true);
+
+                //  GameObject btnNext = GameObject.FindGameObjectWithTag("NextBtn");
+                //  Button btn = btnNext.GetComponent<Button>();
+
+
+
+                scoreText.text = "Score: " + score.ToString();
+                if (PlayerPrefs.GetInt("OpenLevels") <= _sceneNumber)
+                {
+                    PlayerPrefs.SetInt("OpenLevels", _sceneNumber + 1);
+                }
+            }
+        }
+        else
+        {
+            winPanel.SetActive(true);
+
+            //  GameObject btnNext = GameObject.FindGameObjectWithTag("NextBtn");
+            //  Button btn = btnNext.GetComponent<Button>();
+
+
+
+            scoreText.text = "Score: " + score.ToString();
+            if (PlayerPrefs.GetInt("OpenLevels") <= _sceneNumber)
+            {
+                PlayerPrefs.SetInt("OpenLevels", _sceneNumber + 1);
+            }
         }
 
     }
 
     private void YouLose()
     {
-        losePanel.SetActive(true);
+        if (_isAdsNeed)
+        {
+            TryAd();
+            if (_rewardedAds.isReady)
+                losePanel.SetActive(true);
+        }
+        else
+        {
+            losePanel.SetActive(true);
+        }
+
+             
+
+        //losePanel.SetActive(true);
     }
+
+    private void TryAd()
+    {
+       
+           // _rewardedAds._showAdButton = btn;
+        _rewardedAds.ShowAd();
+        _rewardedAds.isReady = true;
+    }
+
+    #region Button Menu
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Repeat()
+    {
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        Time.timeScale = 1;
+    }
+
+    public void NextLevel()
+    {
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(scene + 1);
+        Time.timeScale = 1;
+    }
+
+    #endregion
 }
+
+

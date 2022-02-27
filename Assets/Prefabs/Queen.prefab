@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 691279317443185885}
   - component: {fileID: 691279317443185881}
   - component: {fileID: 691279317443185880}
+  - component: {fileID: 2512543977881009097}
   m_Layer: 0
   m_Name: Queen
   m_TagString: Player
@@ -115,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 300
   speed: 5
+  manager: {fileID: 0}
 --- !u!54 &691279317443185880
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,6 +133,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!81 &2512543977881009097
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691279317443185886}
+  m_Enabled: 1
 --- !u!1001 &8325749642834163586
 PrefabInstance:
   m_ObjectHideFlags: 0
