@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708987, g: 0.37837064, b: 0.35722545, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -201,7 +201,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266990370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 822}
+  m_LocalPosition: {x: 0, y: 0, z: 801.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,7 +210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -249, y: -490}
+  m_AnchoredPosition: {x: -249, y: -822}
   m_SizeDelta: {x: 200, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266990372
@@ -242,8 +242,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280032480
+  m_fontColor: {r: 0.8773585, g: 0.11173906, b: 0.11173906, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -337,16 +337,16 @@ RectTransform:
   m_GameObject: {fileID: 1294440537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.096548, y: 7.5267925, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.78, y: 5.78, z: 0.7225}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1935601103}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -349, y: -2}
-  m_SizeDelta: {x: 640, y: 437}
+  m_AnchoredPosition: {x: 81, y: 32}
+  m_SizeDelta: {x: 413.1, y: 492.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294440539
 MonoBehaviour:
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5305f1d0bdf1a50408c8c1962378fdd8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11208d416a18a9248af3dd5a6aa2cb4e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -394,6 +394,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1935601103}
     m_Modifications:
+    - target: {fileID: 7319802482683745416, guid: a9da5c30338a1ec41b77ba6e468d541d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68640fd6a1801c545be52a32afa4ebac, type: 3}
     - target: {fileID: 7319802482683745417, guid: a9da5c30338a1ec41b77ba6e468d541d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
