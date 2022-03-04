@@ -337,15 +337,15 @@ RectTransform:
   m_GameObject: {fileID: 1294440537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.78, y: 5.78, z: 0.7225}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 6.28, y: 6.51, z: 0.785}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1935601103}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81, y: 32}
+  m_AnchoredPosition: {x: 131, y: 7}
   m_SizeDelta: {x: 413.1, y: 492.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294440539
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f4a899d6445d34099062333d2d78fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCount: 5
+  levelCount: 6
   pref: {fileID: 7319802482683745418, guid: a9da5c30338a1ec41b77ba6e468d541d, type: 3}
   parantPanel: {fileID: 1900577808}
   lvlButtons: []

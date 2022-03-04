@@ -2923,14 +2923,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2058970335753703993, guid: a98359818626db6408802a348d15f211, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058970335937002854, guid: a98359818626db6408802a348d15f211, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2058970337312768692, guid: a98359818626db6408802a348d15f211, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -4366,7 +4358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4961294652971396100, guid: a0f059c9893bca543ba957e6bb5bc230, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.72
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 4961294652971396100, guid: a0f059c9893bca543ba957e6bb5bc230, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4374,7 +4366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4961294652971396100, guid: a0f059c9893bca543ba957e6bb5bc230, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.48
+      value: 21.74
       objectReference: {fileID: 0}
     - target: {fileID: 4961294652971396100, guid: a0f059c9893bca543ba957e6bb5bc230, type: 3}
       propertyPath: m_LocalRotation.w
