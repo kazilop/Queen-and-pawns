@@ -12,22 +12,30 @@ public class Queen : MonoBehaviour
     private Rigidbody rb;
     public GameManager manager;
 
-    // Start is called before the first frame update
+    public Joysticki joy;
+    public float joyspeed;
+
+    private SpriteRenderer spriteRenderer;
+
+   
     void Start()
     {
         manager = FindObjectOfType<GameManager>();
-        // controller = gameObject.AddComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         move = Vector3.zero;
-   
+
     }
 
     // Update is called once per frame
-   
+
 
     private void FixedUpdate()
     {
+        JoystickFun();
         MovementLogic();
+        
 
         if (transform.position.y < -5.0f)
         {
@@ -43,7 +51,7 @@ public class Queen : MonoBehaviour
             int z = 0;
             foreach (var i in manager.pawns)
             {
-                if(i != null)
+                if (i != null)
                 {
                     Destroy(i.gameObject);
                     manager.pawns[z] = null;
@@ -67,29 +75,22 @@ public class Queen : MonoBehaviour
         rb.AddForce(move * speed);
     }
 
-    public void MoveForward()
+   
+    void JoystickFun()
     {
-        move = new Vector3(0,0,playerSpeed);
-    }
+        joyspeed = joy.speed;
+        if (joy.speed > 0.0f)
+        {
+            Vector2 direction = joy.direction;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-    public void MoveBack()
-    {
-        move = new Vector3(0,0,- playerSpeed);
-    }
+            move.z = direction.y;
+            move.x = direction.x;
 
-    public void MoveLeft()
-    {
-        move = new Vector3(-playerSpeed, 0,0);
-    }
+            rb.AddForce(move * speed * playerSpeed);
 
-    public void MoveRight()
-    {
-        move = new Vector3(playerSpeed, 0,0);
-    }
-
-    public void MoveStop()
-    {
-        move = Vector3.zero;
+            
+        }
     }
 }
 
