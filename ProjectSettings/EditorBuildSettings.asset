@@ -10,17 +10,41 @@ EditorBuildSettings:
     guid: 0912aba5d12d8e440a9f10f3f3bbe13b
   - enabled: 1
     path: Assets/Scenes/Scene001.unity
-    guid: cc8b902168eb9664e937a9a5c5179490
+    guid: 10b97ffc1c5c06a4b8546fbb10822aad
   - enabled: 1
     path: Assets/Scenes/Scene002.unity
-    guid: dc02b07ad6ecbe44282305d76f200b87
+    guid: 430b9f459b690a8489956c63fd7b3f4d
   - enabled: 1
     path: Assets/Scenes/Scene003.unity
-    guid: a3889d0a33a2b5b4392f8ec55cd0db72
+    guid: e8185a9679e33ae4db371870ed37d932
   - enabled: 1
     path: Assets/Scenes/Scene004.unity
-    guid: 76b666d2d97ca8246abf5eb7d51d655c
+    guid: 28c792b656520b64ba813826f7c1c392
   - enabled: 1
     path: Assets/Scenes/Scene005.unity
-    guid: fb010c86777aef8479ebfea3eb2bd138
+    guid: faa28413d4f65dd42a2fc76b19243a13
+  - enabled: 1
+    path: Assets/Scenes/Scene006.unity
+    guid: c6a47296db86299459ac239009696ad3
+  - enabled: 1
+    path: Assets/Scenes/Scene007.unity
+    guid: 4cbd56e83f3f29546a35a7b5872867a0
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

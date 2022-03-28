@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Xml;
+
 
 
 public class Queen : MonoBehaviour
@@ -11,6 +9,7 @@ public class Queen : MonoBehaviour
     public float speed = 10f;
     private Rigidbody rb;
     public GameManager manager;
+    private float boostPower = 50f;
 
     public Joysticki joy;
     public float joyspeed;
@@ -27,9 +26,6 @@ public class Queen : MonoBehaviour
         move = Vector3.zero;
 
     }
-
-    // Update is called once per frame
-
 
     private void FixedUpdate()
     {
@@ -48,7 +44,7 @@ public class Queen : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            int z = 0;
+           /* int z = 0;
             foreach (var i in manager.pawns)
             {
                 if (i != null)
@@ -58,7 +54,7 @@ public class Queen : MonoBehaviour
                     break;
                 }
                 z++;
-            }
+            } */
             Respawn();
         }
     }
@@ -91,6 +87,11 @@ public class Queen : MonoBehaviour
 
             
         }
+    }
+
+   public void Boost()
+    {
+        rb.AddForce(move * speed * playerSpeed * boostPower);
     }
 }
 

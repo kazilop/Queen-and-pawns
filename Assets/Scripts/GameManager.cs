@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 //using System.Xml;
@@ -54,12 +52,10 @@ public class GameManager : MonoBehaviour
         isGaming = true;
         respawn = GameObject.FindGameObjectWithTag("Respawn");
         queenPos = respawn.transform.position;
-        QueenRespawn();
+      //  QueenRespawn();
 
         pawnPos = queenPos;
-        //pawnPos.z = queenPos.z - 3;
-       // pawnPos.y = queenPos.y + 2;
-        
+   
         PawnCreate(pawnPos);
     }
 
@@ -122,6 +118,8 @@ public class GameManager : MonoBehaviour
     {
         queenPos.y = queenPos.y + 0.5f;
         queen.transform.position = queenPos;
+        pawns[pawns.Count - 1].gameObject.SetActive(false);
+        pawns.RemoveAt(pawns.Count - 1);
         
     }
 
@@ -133,12 +131,6 @@ public class GameManager : MonoBehaviour
             if (_rewardedAds.isReady)
             {
                 winPanel.SetActive(true);
-
-                //  GameObject btnNext = GameObject.FindGameObjectWithTag("NextBtn");
-                //  Button btn = btnNext.GetComponent<Button>();
-
-
-
                 scoreText.text = "Score: " + score.ToString();
                 if (PlayerPrefs.GetInt("OpenLevels") <= _sceneNumber)
                 {
@@ -149,11 +141,6 @@ public class GameManager : MonoBehaviour
         else
         {
             winPanel.SetActive(true);
-
-            //  GameObject btnNext = GameObject.FindGameObjectWithTag("NextBtn");
-            //  Button btn = btnNext.GetComponent<Button>();
-
-
 
             scoreText.text = "Score: " + score.ToString();
             if (PlayerPrefs.GetInt("OpenLevels") <= _sceneNumber)
@@ -177,15 +164,10 @@ public class GameManager : MonoBehaviour
             losePanel.SetActive(true);
         }
 
-             
-
-        //losePanel.SetActive(true);
     }
 
     private void TryAd()
     {
-       
-           // _rewardedAds._showAdButton = btn;
         _rewardedAds.ShowAd();
         _rewardedAds.isReady = true;
     }
