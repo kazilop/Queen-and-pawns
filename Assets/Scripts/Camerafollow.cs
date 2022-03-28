@@ -5,7 +5,7 @@ public class Camerafollow : MonoBehaviour
     private Vector3 pos;
     public GameObject player;
     private Camera cam;
-    private float camZoom = 1.0f;
+    private float camZoom = 10.0f;
 
     void Start()
     {
@@ -14,7 +14,9 @@ public class Camerafollow : MonoBehaviour
         pos = player.transform.position - transform.position;
         cam =  GetComponent<Camera>();
 
-        if (PlayerPrefs.GetFloat("CameraZoom") == 0)
+        cam.fieldOfView = 77f;
+
+        if (PlayerPrefs.GetFloat("CameraZoom") == 0f)
         {
             PlayerPrefs.SetFloat("CameraZoom", cam.fieldOfView);
        
@@ -35,12 +37,14 @@ public class Camerafollow : MonoBehaviour
     public void CamPlus()
     {
         if(cam.fieldOfView > 5 && cam.fieldOfView < 120)
-        cam.fieldOfView = cam.fieldOfView - camZoom;
+            cam.fieldOfView = cam.fieldOfView - camZoom;
+        PlayerPrefs.SetFloat("CameraZoom", cam.fieldOfView);
     }
 
     public void CamMinus()
     {
         if (cam.fieldOfView > 5 && cam.fieldOfView < 120)
             cam.fieldOfView = cam.fieldOfView + camZoom;
+        PlayerPrefs.SetFloat("CameraZoom", cam.fieldOfView);
     }
 }
